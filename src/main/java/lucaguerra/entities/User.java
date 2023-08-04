@@ -19,6 +19,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lucaguerra.Enum.Role;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "users")
 @Data
@@ -28,6 +29,7 @@ public class User implements UserDetails {
 	@Id
 	@GeneratedValue
 	private UUID id;
+	@SuppressWarnings("unused")
 	private String username;
 	private String name;
 	private String surname;
@@ -37,6 +39,7 @@ public class User implements UserDetails {
 	@Enumerated(EnumType.STRING)
 	private Role role;
 
+	@SuppressWarnings("static-access")
 	public User(String username, String name, String surname, String email, String password) {
 
 		this.username = username;

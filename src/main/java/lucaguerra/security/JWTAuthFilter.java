@@ -30,7 +30,7 @@ public class JWTAuthFilter extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
 		String authHeader = request.getHeader("Authorization");
-		if (authHeader == null || !authHeader.startsWith("Baerer "))
+		if (authHeader == null || !authHeader.startsWith("Bearer "))
 			throw new UnauthorizedException("Per favore passa il token nell'authorization header");
 		String token = authHeader.substring(7);
 		System.out.println("TOKEN = " + token);

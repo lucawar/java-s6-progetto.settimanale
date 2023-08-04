@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lucaguerra.entities.User;
+import lucaguerra.exception.BadRequestException;
 import lucaguerra.exception.NotFoundException;
 import lucaguerra.payload.NewUserPayload;
 import lucaguerra.repositories.UserRepository;
@@ -20,8 +21,7 @@ public class UsersService {
 	// SALVA NUOVO UTENTE + ECCEZIONE SE VIENE USATA LA STESSA EMAIL
 	public User save(NewUserPayload body) {
 		userRepository.findByEmail(body.getEmail()).ifPresent(user -> {
-			throw new lucaguerra.exception.BadRequestException(
-					"L'email " + body.getEmail() + " è gia stata utilizzata");
+			throw new BadRequestException("L'email " + body.getEmail() + " è gia stata utilizzata");
 		});
 		User newUser = new User(body.getUsername(), body.getName(), body.getSurname(), body.getEmail(),
 				body.getPassword());

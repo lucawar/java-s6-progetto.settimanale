@@ -29,8 +29,20 @@ public class UtenteDispositivoService {
 
 		UUID userId = body.getUserId();
 		UUID dispositivoId = body.getDispositivoId();
-		User user = userServ.findById(userId);
-		Dispositivo dispositivo = dispositivoServ.findById(dispositivoId);
+
+		User user;
+		try {
+			user = userServ.findById(userId);
+		} catch (NotFoundException e) {
+			throw new NotFoundException("Utente non trovato con ID: " + userId);
+		}
+
+		Dispositivo dispositivo;
+		try {
+			dispositivo = dispositivoServ.findById(dispositivoId);
+		} catch (NotFoundException e) {
+			throw new NotFoundException("Dispositivo non trovato con ID: " + dispositivoId);
+		}
 		UtenteDispositivo newUtenteDispositivo = new UtenteDispositivo(userId, dispositivo, user);
 		return udRepo.save(newUtenteDispositivo);
 	}

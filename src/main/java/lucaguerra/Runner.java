@@ -22,7 +22,7 @@ public class Runner implements CommandLineRunner {
 
 		Faker faker = new Faker(new Locale("it"));
 
-		for (int i = 0; i < 30; i++) {
+		for (int i = 0; i < 10; i++) {
 			String username = faker.funnyName().name();
 			String name = faker.name().firstName();
 			String surname = faker.name().lastName();
