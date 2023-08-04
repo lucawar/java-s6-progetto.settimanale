@@ -43,7 +43,7 @@ public class UtenteDispositivoService {
 		} catch (NotFoundException e) {
 			throw new NotFoundException("Dispositivo non trovato con ID: " + dispositivoId);
 		}
-		UtenteDispositivo newUtenteDispositivo = new UtenteDispositivo(userId, dispositivo, user);
+		UtenteDispositivo newUtenteDispositivo = new UtenteDispositivo(dispositivo, user);
 		return udRepo.save(newUtenteDispositivo);
 	}
 
