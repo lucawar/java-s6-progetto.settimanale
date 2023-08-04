@@ -8,6 +8,9 @@ import org.springframework.stereotype.Component;
 
 import com.github.javafaker.Faker;
 
+import lucaguerra.Enum.StatoDispositivo;
+import lucaguerra.Enum.TipoDispositivo;
+import lucaguerra.payload.NewDispositivoPayload;
 import lucaguerra.payload.NewUserPayload;
 import lucaguerra.service.DispositivoService;
 import lucaguerra.service.UsersService;
