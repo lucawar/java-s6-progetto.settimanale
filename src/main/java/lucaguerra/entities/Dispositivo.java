@@ -7,7 +7,6 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lucaguerra.Enum.StatoDispositivo;
@@ -16,7 +15,7 @@ import lucaguerra.Enum.TipoDispositivo;
 @Entity
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
+
 public class Dispositivo {
 
 	@Id
@@ -26,5 +25,11 @@ public class Dispositivo {
 	private TipoDispositivo tipoDispositivo;
 	@Enumerated(EnumType.STRING)
 	private StatoDispositivo statoDispositivo;
+
+	public Dispositivo(TipoDispositivo tipoDispositivo, StatoDispositivo statoDispositivo) {
+
+		this.tipoDispositivo = tipoDispositivo;
+		this.statoDispositivo = statoDispositivo;
+	}
 
 }
