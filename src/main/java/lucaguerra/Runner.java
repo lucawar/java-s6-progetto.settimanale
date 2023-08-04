@@ -8,9 +8,6 @@ import org.springframework.stereotype.Component;
 
 import com.github.javafaker.Faker;
 
-import lucaguerra.Enum.StatoDispositivo;
-import lucaguerra.Enum.TipoDispositivo;
-import lucaguerra.payload.NewDispositivoPayload;
 import lucaguerra.payload.NewUserPayload;
 import lucaguerra.service.DispositivoService;
 import lucaguerra.service.UsersService;
@@ -39,12 +36,12 @@ public class Runner implements CommandLineRunner {
 			// userService.save(user);
 		}
 
-		for (int i = 0; i < 10; i++) {
-			TipoDispositivo tipo = TipoDispositivo.COMPUTER;
-			StatoDispositivo stato = StatoDispositivo.ASSEGNATO;
-			NewDispositivoPayload dispositivo = new NewDispositivoPayload(tipo, stato);
-			// dispSrv.save(dispositivo);
-		}
+//		for (int i = 0; i < 10; i++) {
+//			TipoDispositivo tipo = TipoDispositivo.COMPUTER;
+//			StatoDispositivo stato = StatoDispositivo.ASSEGNATO;
+//			NewDispositivoPayload dispositivo = new NewDispositivoPayload(tipo, stato);
+//			// dispSrv.save(dispositivo);
+//		}
 	}
 
 }
